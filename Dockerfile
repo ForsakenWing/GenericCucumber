@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/playwright:v1.26.0-focal
+FROM mcr.microsoft.com/playwright:v1.27.0-focal
 
 ARG PROJECT_DIR=/opt/playwright
 
@@ -11,4 +11,4 @@ USER pwuser
 
 RUN npm install
 
-CMD ["npm", "run-script", "test"]
+CMD ["npm", "run-script", "chrome"]
