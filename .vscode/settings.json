@@ -14,6 +14,19 @@
     "editor.minimap.showSlider": "always",
     "editor.minimap.renderCharacters": true,
     "editor.mouseWheelZoom": true,
+    "cucumber.glue": [
+        "src/test/**/*.java",
+        "src/**/*.ts",
+        "support/**/*.ts",
+        "features/**/*.tsx",
+        "features/**/*.php",
+        "features/**/*.py",
+        "tests/**/*.py",
+        "tests/**/*.rs",
+        "features/**/*.rs",
+        "features/**/*.rb",
+        "*specs*/**/.cs"
+    ],
     "editor.quickSuggestions": {
         "other": true,
         "comments": false,
@@ -37,5 +50,6 @@
     "typescript.tsdk": "node_modules/typescript/lib",
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
-    }
+    },
+    "files.autoSave": "afterDelay"
 }

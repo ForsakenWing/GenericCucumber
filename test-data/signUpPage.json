@@ -4,5 +4,12 @@
     "email": "//input[@id='userEmail']",    
     "phonenumber": "//input[@id='userMobile']",
     "password": "//input[@id='userPassword']",  
-    "passwordConfirmation": "//input[@id='confirmPassword']"
+    "passwordConfirmation": "//input[@id='confirmPassword']",
+    "occupationSelect": "//select[@formcontrolname='occupation']",
+    "Genders": {
+        "Male": "//input[@value='Male']",
+        "Female": "//input[@value='Male']"
+    },
+    "ageConfirmation": "//input[@formcontrolname='required']",
+    "confirmRegistration": "//input[@id='login']"
 } 

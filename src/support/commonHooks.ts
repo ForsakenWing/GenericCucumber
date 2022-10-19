@@ -1,10 +1,10 @@
 import { chromium, firefox, webkit, ChromiumBrowser, FirefoxBrowser, WebKitBrowser } from '@playwright/test';
 import { ICustomWorld } from './custom_world';
 import { setDefaultTimeout, Before, BeforeAll, After, AfterAll } from '@cucumber/cucumber';
-import { config } from '../config';
+import { config } from '../../config';
 import { ITestCaseHookParameter, Status } from '@cucumber/cucumber';
 import axios from 'axios';
-import { testData } from './helper/files';
+import { testData } from '../../support/utilities/files';
 
 
 const tracesDir = 'traces';
@@ -14,7 +14,7 @@ declare global {
   var browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser;
 }
 
-setDefaultTimeout(process.env.PWDEBUG ? -1 : 60 * 1000);
+setDefaultTimeout(process.env.PWDEBUG ? 15 * 1000 : 60 * 1000);
 
 BeforeAll(async function () {
   switch (((browser: string | undefined) => {
@@ -23,13 +23,13 @@ BeforeAll(async function () {
     };
   })(config.browser)) {
     case 'webkit':
-      browser = await webkit.launch()
+      global.browser = await webkit.launch(config.browserOptions)
       break
     case 'firefox':
-      browser = await firefox.launch()
+      global.browser = await firefox.launch(config.browserOptions)
       break
     default:
-      browser = await chromium.launch()
+      global.browser = await chromium.launch(config.browserOptions)
       break
   };
 })
@@ -52,6 +52,7 @@ Before(async function (this: ICustomWorld, { pickle }: ITestCaseHookParameter) {
     recordVideo: process.env.PWVIDEO ? { dir: 'screenshots' } : undefined,
     viewport: { width: 1200, height: 800 },
   });
+  this.page = await this.context.newPage();
   this.testObject = testData;
   this.apiClient = axios.create();
   this.apiClient.defaults.headers.post = {
@@ -79,6 +80,6 @@ After(async function (this: ICustomWorld, { result }: ITestCaseHookParameter) {
 });
 
 AfterAll(async function () {
-  await browser.close();
+  await global.browser.close();
 });
 

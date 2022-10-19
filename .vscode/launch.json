@@ -17,7 +17,7 @@
       ],
       "type": "node",
       "env": {
-        "DEBUG": "pw:api",
+        "DEBUG": "cucumber",
       },
       "console": "internalConsole",
       "outputCapture": "std"
@@ -28,8 +28,6 @@
       "runtimeArgs": [
         "./node_modules/.bin/cucumber-js",
         "${file}",
-        "--tags",
-        "front-end",
         "-p default"
       ],
       "skipFiles": [

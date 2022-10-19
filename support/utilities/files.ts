@@ -7,6 +7,6 @@ var testData = {};
 jsonsInDir.forEach(file => {
     const fileData = readFileSync(join(dirPath, file));
     const json: JSON = JSON.parse(fileData.toString());
-    testData[file] = json
+    testData[file.split('.')[0]] = json
 });
 export { testData };
