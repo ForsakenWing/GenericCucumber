@@ -18,7 +18,6 @@
       "type": "node",
       "env": {
         "DEBUG": "pw:api",
-        // "PWDEBUG": "1"
       },
       "console": "internalConsole",
       "outputCapture": "std"

@@ -3,28 +3,10 @@ Feature: Create account
 
     Background:
         When Open page with url "https://rahulshettyacademy.com/client/"
-        When Click on locator="//a[contains(@class, 'btn1')]" with options 
+        And Click on locator="//a[contains(@class, 'btn1')]" with options
 
         | delay | 0 |
         | force | false |
-
-        Given "InputFields" have locators:
-
-        | firstname            | //input[@id='firstName']       | 
-        | lastname             | //input[@id='lastName']        |
-        | email                | //input[@id='userEmail']       |
-        | phonenumber          | //input[@id='userMobile']      |
-        | password             | //input[@id='userPassword']    |
-        | passwordConfirmation | //input[@id='confirmPassword'] |
-
-        Given "Genders" have locators:
-
-        | Male   | //input[@formcontrolname='gender' and @value='Male']   |
-        | Female | //input[@formcontrolname='gender' and @value='Female'] |
-
-        Given "ageConfirmation" has locator "//input[@formcontrolname='required']"
-        Given "occupationSelect" has locator "//select[@formcontrolname='occupation']"
-        Given "confirmRegistration" has locator "//input[@id='login']"
 
     Scenario: User with valid data fill the sign up form and confirms registration
         Given Valid User
@@ -34,6 +16,8 @@ Feature: Create account
         When Click on "ageConfirmation"
         When Click on "confirmRegistration"
         Then Check that locator="//h1[@class='headcolor']" has text="Account Created Successfully"
+
+        When I send request I see response 200 and headers=... body=...
         
     # Scenario Outline: Useinvalidr with  data fill the sign up form and confirms registration
     #     Given User with invalid <email>

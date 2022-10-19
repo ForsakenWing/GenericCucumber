@@ -1,0 +1,8 @@
+{
+    "firstname": "//input[@id='firstName']", 
+    "lastname": "//input[@id='lastName']",  
+    "email": "//input[@id='userEmail']",    
+    "phonenumber": "//input[@id='userMobile']",
+    "password": "//input[@id='userPassword']",  
+    "passwordConfirmation": "//input[@id='confirmPassword']"
+} 
