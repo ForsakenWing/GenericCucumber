@@ -5,10 +5,9 @@ import { sleep } from '../../src/helpers/common';
 import { isJSON } from '../../src/helpers/json';
 import { readFixture } from '../../src/helpers/files';
 import { set } from 'lodash';
+import stringMath from 'string-math';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const stringMath = require('string-math');
-
 export async function iWaitSeconds(seconds: number) {
   log.info(`Wait for ${seconds} seconds`);
   await sleep(seconds * 1000);

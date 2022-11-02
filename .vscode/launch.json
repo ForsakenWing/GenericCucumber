@@ -6,18 +6,39 @@
   "justMyCode": true,
   "configurations": [
     {
-      "name": "debug",
+      "name": "debug back-end",
       "request": "launch",
       "runtimeArgs": [
-        "${cwd}/node_modules/.bin/cucumber-js",
-        "${file} -p default",
+        "./node_modules/.bin/cucumber-js",
+        "--profile=default",
+        "--config=cucumber.js",
+        "--tags=@back-end"
       ],
       "skipFiles": [
         "<node_internals>/**"
       ],
       "type": "node",
       "env": {
-        "DEBUG": "cucumber",
+        "DEBUG": "PW:DEBUG",
+      },
+      "console": "internalConsole",
+      "outputCapture": "std"
+    },
+    {
+      "name": "debug front-end",
+      "request": "launch",
+      "runtimeArgs": [
+        "./node_modules/.bin/cucumber-js",
+        "--profile=default",
+        "--config=cucumber.js",
+        "--tags=@front-end"
+      ],
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node",
+      "env": {
+        "DEBUG": "PW:DEBUG",
       },
       "console": "internalConsole",
       "outputCapture": "std"
@@ -27,8 +48,8 @@
       "request": "launch",
       "runtimeArgs": [
         "./node_modules/.bin/cucumber-js",
+        "-p default ",
         "${file}",
-        "-p default"
       ],
       "skipFiles": [
         "<node_internals>/**"

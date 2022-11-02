@@ -5,7 +5,7 @@ module.exports = {
     require: ['support/**/*.ts', 'src/**/*.ts'],
     format: ['progress-bar', '@cucumber/pretty-formatter'],
     publish: true,
-    backtrace: true
+    backtrace: true,
   }
 };
 

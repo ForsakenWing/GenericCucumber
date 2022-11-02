@@ -1,0 +1,12 @@
+{
+    "firstName":"SomeFirstName",
+    "lastName":"12342",
+    "userEmail":"{{ generate.email }}",
+    "userRole":"customer",
+    "occupation":"Doctor",
+    "gender":"Male",
+    "userMobile":"1234567890",
+    "userPassword":"BlaBla1234@",
+    "confirmPassword":"BlaBla1234@",
+    "required":true
+}
